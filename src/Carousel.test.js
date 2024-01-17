@@ -82,13 +82,13 @@ it("left arrow missing on first image", function() {
 
   // expect right arrow visible
   expect(
-    container.querySelector('.bi-arrow-right-circle')
-  ).toBeInTheDocument();
+    container.querySelector("#right-arrow")
+  ).toHaveClass("bi bi-arrow-right-circle");
 
   // expect left arrow to not be visible
   expect(
-    container.querySelector('.bi-arrow-left-circle')
-  ).not.toBeInTheDocument();
+    container.querySelector("#left-arrow")
+  ).toHaveClass("bi bi-arrow-left-circle hidden");
 
   // move forward in the carousel
   // const rightArrow = container.querySelector(".bi-arrow-right-circle");
@@ -123,13 +123,13 @@ it("right arrow missing on last image", function() {
 
   // expect right arrow to not be visible
   expect(
-    container.querySelector('.bi-arrow-right-circle')
-  ).not.toBeInTheDocument();
+    container.querySelector("#right-arrow")
+  ).toHaveClass("bi bi-arrow-right-circle hidden");
 
   // expect left arrow to be visible
   expect(
-    container.querySelector('.bi-arrow-left-circle')
-  ).not.toBeInTheDocument();
+    container.querySelector("#left-arrow")
+  ).toHaveClass("bi bi-arrow-left-circle");
 });
 
 //smoke test
