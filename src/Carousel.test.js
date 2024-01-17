@@ -31,22 +31,27 @@ it("works when you click on the right arrow", function() {
 });
 
 it("works when you click on the left arrow", function() {
-  const { container } = render(
+  const { container, debug } = render(
     <Carousel
         photos={TEST_IMAGES}
         title="images for testing"
       />
   );
+  // move forward in the carousel
+  const rightArrow = container.querySelector(".bi-arrow-right-circle");
+  fireEvent.click(rightArrow);
 
   //expect the last image to show, but not the first
   expect(
     container.querySelector('img[alt="testing image 2"]')
   ).toBeInTheDocument();
-    container.querySelector('img[alt="testing image 1"]'
+  expect(
+    container.querySelector('img[alt="testing image 1"]')
   ).not.toBeInTheDocument();
 
   //move backward in the carousel
-  const leftArrow = container.querySelector("bi bi-arrow-left-circle");
+  const leftArrow = container.querySelector(".bi-arrow-left-circle");
+  debug(leftArrow)
   fireEvent.click(leftArrow);
 
   //expect the first image to show, but not the second
